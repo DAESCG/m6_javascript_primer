@@ -28,4 +28,6 @@ Contents
 
 Installation
 ------------
-`git clone https://github.com/DAESCG/m6_javascript_primer`
+```
+git clone https://github.com/DAESCG/m6_javascript_primer
+```
