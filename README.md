@@ -19,3 +19,13 @@ was also utilized.
 The focus of the meeting switched to [Leaflet](http://leafletjs.com) following
 the JS primer. Kevin Tyle provided more Leaflet demonstrations and stepped through
 associated source code.
+
+Contents
+--------
+1. `README.md` - Master README file
+2. `leaflet_quickstart.html` - Code to generate an OpenStreetMap map layer using Leaflet.
+3. `leaflet_hrrr_radar.html` - Code to generate HRRR forecast radar imagery using Leaflet and ncWWS2.
+
+Installation
+------------
+`git clone https://github.com/DAESCG/m6_javascript_primer`
