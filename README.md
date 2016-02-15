@@ -12,7 +12,7 @@ noted.**
 Meeting Synopsis
 ----------------
 The first half of the meeting featured a JavaScript (JS) primer. Dan Panzarella
-led the primer, which covered Basic JS syntax and usage. [Node.js](https://nodejs.org)
+led the primer, which covered basic JS syntax and usage. [Node.js](https://nodejs.org)
 was used to carry out most JS demonstrations, but the [web console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console)
 was also utilized.
 
