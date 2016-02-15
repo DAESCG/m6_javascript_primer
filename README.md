@@ -11,9 +11,9 @@ noted.**
 
 Meeting Synopsis
 ----------------
-The first half of the meeting featured a JavaScript (JS) primer. Basic JS syntax
-and usage was covered. [Node.js](https://nodejs.org) was used to carry out most
-JS demonstrations, but the [web console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console)
+The first half of the meeting featured a JavaScript (JS) primer. Dan Panzarella
+led the primer, which covered Basic JS syntax and usage. [Node.js](https://nodejs.org)
+was used to carry out most JS demonstrations, but the [web console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console)
 was also utilized.
 
 The focus of the meeting switched to [Leaflet](http://leafletjs.com) following
