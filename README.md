@@ -24,7 +24,7 @@ Contents
 --------
 1. `README.md` - Master README file
 2. `leaflet_quickstart.html` - Code to generate an OpenStreetMap map layer using Leaflet
-3. `leaflet_hrrr_radar.html` - Code to generate HRRR forecast radar imagery using Leaflet and ncWWS2
+3. `leaflet_hrrr_radar.html` - Code to generate HRRR forecast radar imagery using Leaflet and ncWMS2
 
 Installation
 ------------
