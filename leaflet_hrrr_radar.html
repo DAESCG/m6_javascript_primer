@@ -28,14 +28,14 @@ var map = L.map('map')
 
 var radarLayer = L.tileLayer.wms("http://lore.atmos.albany.edu:8080/ncWMS2/wms",{
 //	displayHour = 1
-//	styles:'default-scalar/radar',
-	layers: '1/VAR0-16-196_FROM_59-0--1_entire_atmosphere',
+	styles:'default-scalar/radar',
+	layers: '0/VAR0-16-196_FROM_59-0--1_entire_atmosphere',
         format: 'image/png',
         transparent: false,
         opacity: .45,
 	belowmincolor: 'transparent',
 //        time: '2016-02-04T'+displayHour+'%3A00%3A00.000Z'	
-        time: '2016-02-12T03:00.000Z'	
+        time: '2016-02-16T06:00.000Z'	
 	});
 	radarLayer.addTo(map);
 </script>
