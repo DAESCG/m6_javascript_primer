@@ -5,17 +5,34 @@
 <title>Plain Leaflet API</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
+<script src="http://www.atmos.albany.edu/student/abrammer/jquery/jquery-2.1.1.min.js"></script>
 <link href='https://api.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
+  #time-control { position:absolute; bottom:0; width:25%;}   
+  button {
+    position: inline-block;
+    bottom: 10px;
+    width: 10%;
+    border: 1px solid red;
+    z-index: 999;
+}
 </style>
 </head>
 <body>
 
 <div id='map'></div>
-
+<div id="time-control">
+<button onclick="reorder(+1)"> reorder + </button>
+<button onclick="reorder(-1)"> reorder - </button>
+</div>
 <script>
+// 
+
+
+
+
 L.mapbox.accessToken = 'pk.eyJ1Ijoia3R5bGUiLCJhIjoiZGUxNzM3YTU2MTJlMmRhZWU1ZmY4MjIwMzU4YjUyODUifQ.ncP7zCVX1cGNcGmzpZDkTg';
 // Replace 'mapbox.streets' with your map id.
 var mapboxTiles = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
@@ -24,20 +41,50 @@ var mapboxTiles = L.tileLayer('https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/
 
 var map = L.map('map')
     .addLayer(mapboxTiles)
-    .setView([42.68, -73.82], 7);
+    .setView([42.68, -73.82], 7)
 
-var radarLayer = L.tileLayer.wms("http://lore.atmos.albany.edu:8080/ncWMS2/wms",{
+radarLayer = [];
+ radarLayer[0] = L.tileLayer.wms("http://lore.atmos.albany.edu:8080/ncWMS2/wms",{
 //	displayHour = 1
 	styles:'default-scalar/radar',
 	layers: '0/VAR0-16-196_FROM_59-0--1_entire_atmosphere',
-        format: 'image/png',
-        transparent: false,
-        opacity: .45,
+    format: 'image/png',
+    transparent: false,
+    opacity: .45,
 	belowmincolor: 'transparent',
 //        time: '2016-02-04T'+displayHour+'%3A00%3A00.000Z'	
-        time: '2016-02-16T06:00.000Z'	
+    time: '2016-02-16T06:00.000Z'	
 	});
-	radarLayer.addTo(map);
+	radarLayer[0].addTo(map);
+	radarLayer[0].setZIndex(99);
+	radarLayer.currentLayer=0
+	
+    radarLayer[1] = L.tileLayer.wms("http://lore.atmos.albany.edu:8080/ncWMS2/wms",{
+//	displayHour = 1
+	styles:'default-scalar/radar',
+	layers: '0/VAR0-16-196_FROM_59-0--1_entire_atmosphere',
+    format: 'image/png',
+    transparent: false,
+    opacity: .45,
+	belowmincolor: 'transparent',
+//        time: '2016-02-04T'+displayHour+'%3A00%3A00.000Z'	
+    time: '2016-02-16T04:00.000Z'	
+	});
+	radarLayer[1].addTo(map);
+	radarLayer[1].setZIndex(-1);
+
+function reorder(adj){
+$.each(radarLayer, function( key, layer){
+if( parseInt(radarLayer.currentLayer +adj ) !== key){ 
+    layer.setZIndex(-1); 
+}else{
+    layer.setZIndex(99); 
+    }
+});
+radarLayer.currentLayer = parseInt(radarLayer.currentLayer +adj );
+};
+
+
 </script>
 
 </body>
